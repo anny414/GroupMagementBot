@@ -82,24 +82,24 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-* 𒍗 Hello {} !*
-𒀖 I'm an management bot [✨](https://telegra.ph/file/abe601bc5f67c3ff81af6.jpg)
+*Hello {} !*
+✪ I'm an anime-theme management bot [✨](https://telegra.ph/file/11b5922a33de9968cedfe.jpg)
 ────────────────────────
-𒀖 *Uptime:* `{}`
-
+× *Uptime:* `{}`
+× `{}` *users, across* `{}` *chats.*
 ────────────────────────
-𒀖 *Hit /help to see my available commands.*
+✪ Hit /help to see my available commands.
 """
-# × `{}` *users, across* `{}` *chats.* #removed Form PM start massage
+
 buttons = [
     [
         InlineKeyboardButton(text=f"About {dispatcher.bot.first_name}", callback_data="emiko_"),
     ],
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
-        #InlineKeyboardButton(
-        #    text="Try inline!​​", switch_inline_query_current_chat=""
-       # ),
+        InlineKeyboardButton(
+            text="Try inline!​​", switch_inline_query_current_chat=""
+        ),
     ],
     [
         InlineKeyboardButton(
@@ -361,12 +361,12 @@ def emiko_about_callback(update, context):
     if query.data == "emiko_":
         query.message.edit_text(
             text=f"๏ I'm *{dispatcher.bot.first_name}*, a powerful group management bot built to help you manage your group easily."
-            "\n𒂂 I can restrict users."
-            "\n𒂂 I can greet users with customizable welcome messages and even set a group's rules."
-            "\n𒂂 I have an advanced anti-flood system."
-            "\n𒂂 I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n𒂂 I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n𒂂 I check for admins' permissions before executing any command and more stuffs"
+            "\n• I can restrict users."
+            "\n• I can greet users with customizable welcome messages and even set a group's rules."
+            "\n• I have an advanced anti-flood system."
+            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
+            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
+            "\n• I check for admins' permissions before executing any command and more stuffs"
             f"\n\n_{dispatcher.bot.first_name}'s licensed under the GNU General Public License v3.0_"
             f"\n\n Click on button bellow to get basic help for {dispatcher.bot.first_name}.",
             parse_mode=ParseMode.MARKDOWN,
@@ -374,11 +374,15 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
+                    InlineKeyboardButton(text="Admins", callback_data="emiko_admin"),
+                    InlineKeyboardButton(text="Notes", callback_data="emiko_notes"),
+                 ],
+                 [
                     InlineKeyboardButton(text="Support", callback_data="emiko_support"),
                     InlineKeyboardButton(text="Credits", callback_data="emiko_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Owner", url="https://telegram.dog/TheAnnyOP"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/kennedy-ex/EmikoRobot"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
@@ -431,14 +435,14 @@ def emiko_about_callback(update, context):
         )
     elif query.data == "emiko_support":
         query.message.edit_text(
-            text=f"*๏ {dispatcher.bot.first_name} support chats*"
-            f"\n𒍗 Contact My Owner for see or report a problem on {dispatcher.bot.first_name}.",
+            text="*๏ Emiko support chats*"
+            f"\nJoin My Support Group/Channel for see or report a problem on {dispatcher.bot.first_name}.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="https://telegram.dog/@TheAnnyOP"),
-                    InlineKeyboardButton(text="Updates", url="https://telegram.dog/MoviePixelUpdate"),
+                    InlineKeyboardButton(text="Support", url="t.me/emikosupport"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/KennedyProject"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
@@ -457,25 +461,25 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="TheAnnyOP", url="https://telegram.dog/TheAnnyOP"),
-                    InlineKeyboardButton(text="Avi", url="https://telegram.dog/Avishkarpatil"),
+                    InlineKeyboardButton(text="sena-ex", url="https://github.com/kennedy-ex"),
+                    InlineKeyboardButton(text="TheHamkerCat", url="https://github.com/TheHamkerCat"),
                  ],
-                 #[
-                   # InlineKeyboardButton(text="TheHamkerCat", url="https://github.com/TheHamkerCat"),
-                   # InlineKeyboardButton(text="riz-ex", url="https://github.com/riz-ex"),
-                # ],
-                 #[
-                  #  InlineKeyboardButton(text="Anime Kaizoku", url="https://github.com/animekaizoku"),
-                  #  InlineKeyboardButton(text="TheGhost Hunter", url="https://github.com/HuntingBots"),
-                # ],
-              #   [
-                    #InlineKeyboardButton(text="Inuka Asith", url="https://github.com/inukaasith"),
-                  #  InlineKeyboardButton(text="Noob-Kittu", url="https://github.com/noob-kittu"),
-              #   ],
-                # [
-                   # InlineKeyboardButton(text="Queen Arzoo", url="https://github.com/QueenArzoo"),
-                  #  InlineKeyboardButton(text="Paul Larsen", url="https://github.com/PaulSonOfLars"),
-                # ],
+                 [
+                    InlineKeyboardButton(text="Feri", url="https://github.com/FeriEXP"),
+                    InlineKeyboardButton(text="riz-ex", url="https://github.com/riz-ex"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Anime Kaizoku", url="https://github.com/animekaizoku"),
+                    InlineKeyboardButton(text="TheGhost Hunter", url="https://github.com/HuntingBots"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Inuka Asith", url="https://github.com/inukaasith"),
+                    InlineKeyboardButton(text="Noob-Kittu", url="https://github.com/noob-kittu"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Queen Arzoo", url="https://github.com/QueenArzoo"),
+                    InlineKeyboardButton(text="Paul Larsen", url="https://github.com/PaulSonOfLars"),
+                 ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
                  ]
@@ -537,7 +541,7 @@ def get_help(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text="Help",
-                                url="t.me/{}?start=XStrangeBot_{}".format(
+                                url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
                             )
@@ -734,6 +738,40 @@ def get_settings(update: Update, context: CallbackContext):
 
     else:
         send_settings(chat.id, user.id, True)
+
+
+def donate(update: Update, context: CallbackContext):
+    user = update.effective_message.from_user
+    chat = update.effective_chat  # type: Optional[Chat]
+    bot = context.bot
+    if chat.type == "private":
+        update.effective_message.reply_text(
+            DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
+        )
+
+        if OWNER_ID != 1606221784:
+            update.effective_message.reply_text(
+                "I'm free for everyone ❤️ If you wanna make me smile, just join"
+                "[My Channel]({})".format(DONATION_LINK),
+                parse_mode=ParseMode.MARKDOWN,
+            )
+    else:
+        try:
+            bot.send_message(
+                user.id,
+                DONATE_STRING,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+            )
+
+            update.effective_message.reply_text(
+                "I've PM'ed you about donating to my creator!"
+            )
+        except Unauthorized:
+            update.effective_message.reply_text(
+                "Contact me in PM first to get donation information."
+            )
+
 
 def migrate_chats(update: Update, context: CallbackContext):
     msg = update.effective_message  # type: Optional[Message]
